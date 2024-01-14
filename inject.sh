@@ -12,7 +12,7 @@ fi
 #set -x
 
 if [ "$1" == "unload" ]; then
-    sudo gdb -n -q -batch                                   \
+    gdb -n -q -batch                                        \
          -ex "attach $pid"                                  \
          -ex "set \$dlopen = (void* (*)(char*, int))dlopen" \
          -ex "set \$dlclose = (int (*)(void*))dlclose"      \
@@ -35,7 +35,7 @@ if grep -q "$libpath" "/proc/$pid/maps"; then
     # 0x2 -> RTLD_NOW
     # 0x6 -> RTLD_LAZY | RTLD_NOLOAD
     # For more info on the 3 mid lines, see self_unload() in main.c
-    sudo gdb -n -q -batch                                   \
+    gdb -n -q -batch                                        \
          -ex "attach $pid"                                  \
          -ex "set \$dlopen = (void* (*)(char*, int))dlopen" \
          -ex "set \$dlclose = (int (*)(void*))dlclose"      \
@@ -50,7 +50,7 @@ if grep -q "$libpath" "/proc/$pid/maps"; then
          -ex "detach"                                       \
          -ex "quit"
 else
-    sudo gdb -n -q -batch                                   \
+    gdb -n -q -batch                                        \
          -ex "attach $pid"                                  \
          -ex "set \$dlopen = (void* (*)(char*, int))dlopen" \
          -ex "set \$dlclose = (int (*)(void*))dlclose"      \
