@@ -25,5 +25,5 @@ $(BIN): $(OBJS)
 	$(CC) $(CFLAGS) -shared -o $@ $(OBJS) $(LDFLAGS)
 
 $(OBJS): obj/%.c.o : src/%.c
-	@mkdir -p obj/
-	$(CC) $(CFLAGS) -c -o $@ $< $(LDFLAGS)
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c -o $@ $<
