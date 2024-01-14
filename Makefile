@@ -3,7 +3,9 @@ CC=gcc
 CFLAGS=-Wall -Wextra -m32 -fPIC
 LDFLAGS=
 
-OBJS=obj/main.c.o
+MAIN_OBJS=main.c.o
+OBJS=$(addprefix obj/, $(MAIN_OBJS))
+
 BIN=libPROJECT-NAME.so
 
 .PHONY: clean all inject
