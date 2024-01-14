@@ -16,6 +16,7 @@
 #+TOC: headlines 2
 
 * Description
+
 Long description.
 
 * Building
@@ -28,10 +29,11 @@ $ make
 #+end_src
 
 * Injecting
+
 Uses the [[https://www.gnu.org/savannah-checkouts/gnu/gdb/index.html][gdb]] debugger for injecting the library.
 
 #+begin_src console
-$ ./injector.sh
+$ sudo ./injector.sh
 [sudo] password for username:
 
 ...
